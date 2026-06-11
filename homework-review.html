@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI批改作业</title>
+    <link rel="stylesheet" href="./homework-review.css" />
+  </head>
+  <body>
+    <header class="study-topbar">
+      <a class="study-brand" href="./index.html" aria-label="返回专题页">
+        <img src="./素材/教师研修网logo.png" alt="中国教师研修网" />
+      </a>
+      <nav class="study-nav" aria-label="学习空间导航">
+        <a class="active" href="./study.html">研修项目</a>
+      </nav>
+      <div class="top-actions">
+        <button class="message-button" type="button" aria-label="消息">
+          <img class="message-icon" src="./素材/消息.png" alt="" />
+          <em>3</em>
+          <b>消息</b>
+        </button>
+        <img class="user-avatar" src="./素材/Group 427319852.png" alt="谷泽琪头像" />
+        <span class="user-name">谷泽琪</span>
+        <img class="user-chevron" src="./素材/下拉.png" alt="" />
+      </div>
+    </header>
+
+    <main class="review-page">
+      <header class="review-titlebar">
+        <a class="back-link" href="./study.html">‹ 返回学习空间</a>
+        <div>
+          <h1>AI批改作业</h1>
+          <p>坊主端 · 查看学员提交、AI查重、AI批改并提交点评</p>
+        </div>
+        <button class="btn primary" type="button" data-action="batch-ai">AI批量批改</button>
+      </header>
+
+      <section class="review-shell">
+        <aside class="submission-panel" aria-label="作业列表">
+          <div class="submission-head">
+            <div>
+              <strong>全部作业</strong>
+              <span data-count-label>共 0 份</span>
+            </div>
+            <input type="search" placeholder="搜索学员或标题" data-search />
+          </div>
+          <div class="submission-list" data-list></div>
+        </aside>
+
+        <section class="detail-panel" aria-label="作业批改详情">
+          <header class="detail-head">
+            <div>
+              <h2 data-title>请选择作业</h2>
+              <p data-meta>从左侧选择一份作业进行批改</p>
+            </div>
+            <div class="detail-actions">
+              <button class="btn" type="button" data-action="check">AI查重</button>
+              <button class="btn primary" type="button" data-action="ai-grade">AI批改</button>
+            </div>
+          </header>
+
+          <div class="detail-body">
+            <article class="essay-column">
+              <span class="section-label">作业内容</span>
+              <div class="essay-content" data-content></div>
+              <div class="check-result" data-check-result hidden>
+                <strong>AI查重报告</strong>
+                <p>综合相似度 <b data-check-percent>0%</b></p>
+                <div class="check-bar"><span data-check-bar></span></div>
+                <ul>
+                  <li>第 2 段与往期作业存在少量表达相似，建议人工复核。</li>
+                  <li>未发现大段复制内容，整体风险较低。</li>
+                </ul>
+              </div>
+            </article>
+
+            <aside class="score-column">
+              <section class="score-card">
+                <div class="score-ring" data-score-ring style="--pct:0"><span data-score-ring-value>—</span></div>
+                <div>
+                  <p>最终评分</p>
+                  <label><input type="number" min="0" max="100" data-final-score placeholder="—" /> 分</label>
+                  <button type="button" data-action="adopt-score" data-adopt hidden>采纳 AI 建议分数 →</button>
+                </div>
+              </section>
+
+              <section class="ai-panel" data-ai-panel>
+                <p>点击「AI批改」后，将生成评分建议、多维度分析和批改要点。</p>
+              </section>
+
+              <section class="comment-card">
+                <div>
+                  <strong>批改评语</strong>
+                  <button type="button" data-action="gen-comment">AI生成</button>
+                </div>
+                <textarea rows="6" data-comment placeholder="请输入点评内容，或点击「AI生成」自动生成评语"></textarea>
+              </section>
+
+              <div class="submit-actions">
+                <button class="btn primary" type="button" data-action="submit-grade">提交点评</button>
+                <button class="btn success" type="button" data-action="nominate">推优</button>
+                <button class="btn danger" type="button" data-action="return">退回</button>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" data-toast></div>
+    <script src="./homework-review.js"></script>
+  </body>
+</html>
